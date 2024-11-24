@@ -2,9 +2,12 @@
 {
 
     font-size: 16px;
-    box-sizing: border-box;
     --sidebar-width: 300px;
     --sidebar-grid-height: 32px;
+}
+*
+{
+    box-sizing: border-box;
 }
 html
 {
@@ -52,7 +55,6 @@ img
     background-color: rgb(255, 255, 255);
     flex-grow: 0;
     height: calc(var(--sidebar-width)*2/3);
-    box-shadow: 0px 5px 25px -10px grey;
     z-index: 1;
 }
 
@@ -62,6 +64,7 @@ img
     flex-grow: 1;
     z-index: 0;
     height: 100%;
+    box-shadow: 0px 5px 25px -10px grey inset;
 }
 .sidebar
 {
@@ -71,10 +74,33 @@ img
     z-index: 2;
     display: grid;
     font-size: var(--sidebar-grid-height);
-    grid-template-rows: 4rem repeat(10,2em);
+    grid-template-rows: 4em repeat(10,2em);
     font-family: "headerFont",sans-serif;
     color: rgb(141, 140, 140);
     justify-items: baseline;
-    align-items: center;
+    padding-left: 1rem;
+    padding-top: 1rem;
 }
 
+.sidebar > :first-child
+{
+    align-self: start;
+}
+
+
+.sidebar div
+{
+    justify-self: stretch;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+
+}
+.sidebar>:first-child~div:hover
+{
+    background-color: rgb(89, 172, 144);
+}
+#blank:hover
+{
+background-color: rgb(128, 255, 212);
+}
