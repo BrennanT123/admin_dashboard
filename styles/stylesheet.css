@@ -1,0 +1,80 @@
+:root
+{
+
+    font-size: 16px;
+    box-sizing: border-box;
+    --sidebar-width: 300px;
+    --sidebar-grid-height: 32px;
+}
+html
+{
+    height: 100%;
+}
+body
+{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+@font-face {
+
+    font-family: mainFont;
+    src: url(/fonts/main_font/rubik-regular-webfont.woff2) format("woff2"), url(/fonts/main_font/rubik-regular-webfont.woff) format("woff)");
+
+}
+@font-face {
+    font-family: headerFont;
+    src: url(/fonts/header_font/chunk_five_print-webfont.woff2) format("woff2"), url(/fonts/header_font/chunk_five_print-webfont.woff) format("woff");
+}
+
+img
+{
+    height: var(--sidebar-grid-height);
+    width: auto;
+    margin-right: 1rem;
+}
+
+.baseContainer
+{
+    display: flex;
+    height: 100%;
+}
+
+.contentContainer
+{
+    display: flex;
+    flex-grow:1;
+    flex-direction: column;
+}
+
+.nav
+{
+    background-color: rgb(255, 255, 255);
+    flex-grow: 0;
+    height: calc(var(--sidebar-width)*2/3);
+    box-shadow: 0px 5px 25px -10px grey;
+    z-index: 1;
+}
+
+.cards
+{
+    background-color: rgb(188, 245, 242);
+    flex-grow: 1;
+    z-index: 0;
+    height: 100%;
+}
+.sidebar
+{
+    background-color: rgb(128, 255, 212);
+    width: var(--sidebar-width);
+    flex-grow: 0;
+    z-index: 2;
+    display: grid;
+    font-size: var(--sidebar-grid-height);
+    grid-template-rows: 4rem repeat(10,2em);
+    font-family: "headerFont",sans-serif;
+    color: rgb(141, 140, 140);
+    justify-items: baseline;
+    align-items: center;
+}
+
