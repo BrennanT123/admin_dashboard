@@ -4,6 +4,8 @@
     font-size: 16px;
     --sidebar-width: 300px;
     --sidebar-grid-height: 32px;
+    --project-title-color: black;
+    --project-info-color: rgb(99, 99, 99);
 }
 *
 {
@@ -58,13 +60,34 @@ img
     z-index: 1;
 }
 
-.cards
+.projectArea
 {
     background-color: rgb(188, 245, 242);
     flex-grow: 1;
     z-index: 0;
-    height: 100%;
     box-shadow: 0px 5px 25px -10px grey inset;
+    height: 0px;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    grid-template-rows: auto 1fr auto 1fr;
+    grid-template-areas:
+    "projectsHeader announcementsHeader" 
+    "projects announcements"
+    "projects trendingHeader"
+    "projects trending";
+    padding: 15px;
+    gap: 15px;
+    overflow: auto;
+}
+.cards
+    {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,300px);
+    place-items: stretch;
+    overflow: auto;
+    grid-auto-rows: 300px;
+    gap: 15px;
+    grid-area: projects;
 }
 .sidebar
 {
@@ -103,4 +126,107 @@ img
 #blank:hover
 {
 background-color: rgb(128, 255, 212);
+}
+
+.project
+{
+    background-image: linear-gradient(to right,rgb(89,172,144) 5%,white 5%);
+    border-radius: 32px;
+    box-shadow: 5px 5px 25px -15px grey;
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-rows: 1fr 3fr 1fr;
+    align-items: center;
+    padding-left: 30px;
+}
+
+.projectInfo, .announcementContent
+{
+    width: 80%;
+    align-self: baseline;
+    color: var(--project-info-color);
+    font-family: "mainFont",sans-serif;
+}
+.projectTitle, .announcementTitle
+{
+    font-family: "titleFont",sans-serif;
+    color: var(--project-title-color);
+}
+
+.options
+{
+    display: flex;
+    justify-content: end;
+}
+.options img
+{
+    height: 2rem;
+    width: auto;
+}
+
+.options img:hover
+{
+    filter: invert(1);
+}
+
+.project:hover
+{
+    background-image: linear-gradient(to right,rgb(89,172,144) 5%,rgb(221, 221, 221) 5%);
+}
+
+.announcementsCard
+{
+    grid-area: announcements;
+}
+.announcementsCard, .trending
+{
+    display: grid;
+    grid-template-rows: repeat(1fr,3);
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 5px 5px 25px -15px grey;
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-rows: 1fr 1fr 1fr;
+    align-items: center;
+    padding: 30px 30px;
+    position: relative;
+}
+
+
+.announcement div
+{
+    margin: 1rem;
+}
+
+
+.trending
+{
+    grid-area: trending;
+}
+
+
+
+.headerAnnouncments
+{
+    grid-area: announcementsHeader;
+}
+
+.headerProjects
+{
+    grid-area: projectsHeader;
+}
+
+.headerTrending
+{
+    grid-area: trendingHeader;
+}
+
+.headerAnnouncments, .headerTrending,.headerProjects
+{
+    font-family: "titleFont",sans-serif;
+    font-size: 1.5rem;
+    margin-top: 1rem;
 }
